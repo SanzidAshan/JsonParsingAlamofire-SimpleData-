@@ -38,16 +38,12 @@ class ViewController: UITableViewController {
             
             do {
                 
-                // getting the data from json file
                 let data = try Data(contentsOf: pathToFile!)
                 
-                // serializing the data in json Object
                 let jsonRoot = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                // if the root is dictionary , then swift type would be [String : Int]
-                // if the root is dictionary , then swift type would be [Array]
+               
                 print(jsonRoot!)
                 let valueForMenu = jsonRoot?["menu"] as? [String: Any]
-                //print(jsonObjectFromRoot!)
                 
                 foodArray = (valueForMenu?["food"] as? [ [String: String]])!
                 
